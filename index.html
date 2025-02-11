@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los insectos: un mundo por explorar</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div id="user-selection" class="centered-container">
+        <div class="logo-container">
+            <img src="imagenes/logo_UC.png" alt="Logo UC" class="logo-uc">
+            <img src="imagenes/redic_trans.png" alt="Logo REDIC" class="logo-redic">
+        </div>
+        <h1>Los insectos: un mundo por explorar</h1>
+        <h2>¿Quién eres?</h2>
+        <label for="user-dropdown">Selecciona tu usuario:</label>
+        <select id="user-dropdown" name="user-dropdown" aria-label="Selecciona tu usuario">
+            <option value="">Selecciona tu nombre</option>
+            <!-- Las opciones se generarán dinámicamente aquí -->
+        </select>
+        <button id="select-user" class="btn btn-primary">¡Vamos a explorar!</button>
+        <button id="new-user" class="btn btn-secondary">Soy un nuevo explorador</button>
+    </div>
+
+    <div id="login-page" class="centered-container">
+        <div class="logo-container">
+            <img src="imagenes/logo_UC.png" alt="Logo UC" class="logo-uc">
+            <img src="imagenes/redic_trans.png" alt="Logo REDIC" class="logo-redic">
+        </div>
+        <h1>El Maravilloso Mundo de los Insectos</h1>
+        <h2>¡Únete a la aventura!</h2>
+        <form id="login-form">
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+            <input type="text" id="apellidos" placeholder="Tus apellidos" required>
+            <input type="text" id="grado" placeholder="Tu grado" required>
+            <input type="text" id="institucion" placeholder="Tu colegio" required>
+            <button type="submit" class="btn btn-primary">¡Comenzar la aventura!</button>
+        </form>
+    </div>
+
+    <div id="main-page" style="display: none;">
+        <div id="menu-izquierdo">
+            <h2>Menú Principal</h2>
+            <div class="menu-item"><a href="#" onclick="cargarContenido('inicio')"><img src="iconos/home.svg" alt="Inicio" class="icon"> Inicio</a></div>
+            <div class="menu-item"><a href="#" onclick="cargarContenido('morfologia')"><img src="iconos/bug.svg" alt="Morfología" class="icon"> Morfología</a></div>
+            <div class="menu-item"><a href="#" onclick="cargarContenido('relaciones')"><img src="iconos/network.svg" alt="Relaciones" class="icon"> Relaciones</a></div>
+            <div class="menu-item"><a href="#" onclick="cargarContenido('importancia')"><img src="iconos/leaf.svg" alt="Importancia" class="icon"> Importancia</a></div>
+            
+            <div class="logos-menu">
+                <img src="imagenes/logo_UC.png" alt="Logo UC" class="logo-menu">
+                <img src="imagenes/redic_trans.png" alt="Logo REDIC" class="logo-menu">
+            </div>
+        </div>
+        
+        <div id="contenido-principal">
+            <div id="contenedor-menu-secundario" style="display: none;">
+                <div id="menu-secundario">
+                    <a href="#" onclick="cargarSubseccion('apertura')"><img src="iconos/apertura.svg" alt="Apertura" class="icon"> Apertura</a>
+                    <a href="#" onclick="cargarSubseccion('fundamento')"><img src="iconos/fundamento.svg" alt="Fundamento" class="icon"> Fundamento</a>
+                    <a href="#" onclick="cargarSubseccion('actividades')"><img src="iconos/actividades.svg" alt="Actividades" class="icon"> Actividades</a>
+                    <a href="#" onclick="cargarSubseccion('evaluacion')"><img src="iconos/evaluacion.svg" alt="Evaluación" class="icon"> Evaluación</a>
+                </div>
+            </div>
+            
+            <div id="contenido">
+                <!-- El contenido se llenará dinámicamente con JavaScript -->
+            </div>
+            
+            <div id="juego-identificacion" style="display: none;">
+                <h2>¿Cuál es el insecto?</h2>
+                <div class="juego-container">
+                    <div id="imagenes-container">
+                        <img id="imagen-identificacion-1" src="" alt="Imagen 1" onclick="seleccionarImagen(1)">
+                        <img id="imagen-identificacion-2" src="" alt="Imagen 2" onclick="seleccionarImagen(2)">
+                    </div>
+                    <div class="respuesta-container">
+                        <div id="explicacion-container">
+                            <textarea id="explicacion" rows="6" placeholder="¿Por qué crees que esta imagen es un insecto?"></textarea>
+                            <button onclick="enviarRespuesta()">Enviar respuesta</button>
+                        </div>
+                        <div id="feedback-container" style="display: none;">
+                            <p id="feedback-texto"></p>
+                            <button onclick="siguientePregunta()">Siguiente pregunta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.charset = 'UTF-8';
+    </script>
+</body>
+</html>
